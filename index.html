@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ShopEase – Online Store</title>
+  <link rel="stylesheet" href="style.css">
+</head> 
+<body>  
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#/" class="logo" data-home>Shop<span>Ease</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#/" data-home>Home</a>
+        <button type="button" data-category="Electronics">Electronics</button>
+        <button type="button" data-category="Clothing">Clothing</button>
+        <button type="button" data-category="Accessories">Accessories</button>
+      </nav>
+      <input type="search" id="navSearch" placeholder="Search products…" aria-label="Search products">
+      <a href="#/cart" class="cart-link" aria-label="Shopping cart">🛒 <span id="cartBadge" class="badge">0</span></a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HOME VIEW -->
+    <section id="homeView">
+      <div class="hero">
+        <div>
+          <h1>Everyday tech, clothes and accessories.</h1>
+          <p>Browse our curated range, compare prices and fill your cart in minutes.</p>
+          <a href="#products" class="btn" id="shopNow">Shop Now</a>
+        </div>
+      </div>
+
+      <h2>Shop by category</h2>
+      <div class="category-grid" id="categoryCards"></div>
+
+      <h2 id="products">Products</h2>
+      <form class="filters" id="filterForm" novalidate>
+        <label>Min price (₹)<input type="number" id="minPrice" min="0" inputmode="numeric" placeholder="0"></label>
+        <label>Max price (₹)<input type="number" id="maxPrice" min="0" inputmode="numeric" placeholder="Any"></label>
+        <label>Sort by
+          <select id="sortSelect">
+            <option value="default">Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name-asc">Name: A to Z</option>
+          </select>
+        </label>
+        <button type="button" class="btn btn-outline" id="clearFilters">Clear Filters</button>
+      </form>
+      <p id="filterError" class="error" role="alert"></p>
+      <p id="resultCount" class="muted" aria-live="polite"></p>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <!-- PRODUCT DETAILS VIEW -->
+    <section id="detailView" hidden></section>
+
+    <!-- CART VIEW -->
+    <section id="cartView" hidden>
+      <h1>Your cart</h1>
+      <div id="cartContent"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>ShopEase</strong> – a frontend demo store built with HTML, CSS and JavaScript.</p>
+      <p class="muted">Sample data only. No real orders or payments. © 2026 ShopEase.</p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
